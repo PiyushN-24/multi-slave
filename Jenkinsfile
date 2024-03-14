@@ -22,10 +22,11 @@ pipeline {
       				if ( env.ENVIRONMENT == 'slave1' ) {
       					sh "sshpass -p 'redhat' scp target/multi-slave.war admin@172.17.0.2:/home/admin/apache-tomcat-9.0.86/webapps"
       				}
-      				elif ( env.ENVIRONMENT == 'slave2' ) {
+      				else if ( env.ENVIRONMENT == 'slave2' ) {
       					sh "sshpass -p 'redhat' scp target/multi-slave.war admin@172.17.0.3:/home/admin/apache-tomcat-9.0.86/webapps"
       				}
-      				fi
+				else {
+                        		error "Invalid environment selected"
       			}
       		}
       	}
