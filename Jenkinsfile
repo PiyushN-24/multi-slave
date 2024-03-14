@@ -3,7 +3,7 @@ pipeline {
 
         parameters {
                 choice choices: ['slave1', 'slave2'], name: 'ENVIRONMENT'
-}
+                }
 
         stages {
       	stage('Checkout SCM') {
@@ -29,4 +29,5 @@ pipeline {
       			}
       		}
       	}
+      }
       }
